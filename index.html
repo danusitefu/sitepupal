@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELLEN OFFICIAL</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gaya untuk notifikasi */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: none;
+            font-size: 12px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Gaya untuk ikon lonceng */
+        .notification img {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Menambahkan elemen audio dengan autoplay, loop, dan muted untuk pemutaran otomatis -->
+    <audio id="background-audio" autoplay loop muted>
+        <source src="media/bgsound.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Sambutan -->
+    <div id="sambutan-container">
+        <div class="sambutan">
+            <img src="media/sambutan.gif" alt="Sambutan" class="sambutan-img">
+            <p>Halo selamat datang di website ELLEN OFFICIAL</p>
+            <button onclick="masukWebsite()">OK</button>
+        </div>
+    </div>
+
+    <!-- Konten utama -->
+    <div class="container" id="main-content" style="display: none;">
+        
+        <!-- Tombol Tema Gelap/Terang -->
+        <div class="top-right">
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <img id="theme-icon" src="https://files.catbox.moe/neaa87.png" alt="Mode Gelap">
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Profile -->
+            <div class="profile-container">
+                <div class="profile-frame">
+                    <div class="profile-border">
+                        <img src="media/profile.gif" alt="Profile" class="profile-image">
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="name">ELLEN OFFICIAL</h2>
+            <div id="description" class="description">
+                Halo selamat datang di ELLEN OFFICIAL, pilih salah satu button jika ingin berdonasi. Terima kasih!
+            </div>
+
+            <!-- Tombol Donasi -->
+            <div class="buttons">
+                <button onclick="copyText('087866274739')" class="donasi-btn" id="dana-btn">DANA</button>
+                <button onclick="copyText('087866274739')" class="donasi-btn" id="gopay-btn">GOPAY</button>
+                <button onclick="showQR('media/qrisdana.jpg')" class="donasi-btn">QR DANA</button>
+                <button onclick="showQR('media/qrisgopay.jpg')" class="donasi-btn">QR GOPAY</button>
+                <button onclick="window.open('https://chat.whatsapp.com/Eu4UcfTWmoU2havgCoyAeI', '_blank')" class="donasi-btn">GC BOT</button>
+                <button onclick="window.open('https://whatsapp.com/channel/0029Vb1BWG97T8bbXGxWlk36', '_blank')" class="donasi-btn">CH WA</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; ELLEN OFFICIAL</p>
+        </footer>
+
+    </div>
+
+    <!-- Notifikasi -->
+    <div id="notification" class="notification" style="display: none;">
+        <img src="https://img.icons8.com/ios/452/bell.png" alt="Lonceng">
+        <p>Telah Tersalin!</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setInterval(updateClock, 1000);  // Update time every second
+        });
+
+        function masukWebsite() {
+            document.getElementById("sambutan-container").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle("light-mode");
+            let themeIcon = document.getElementById("theme-icon");
+            if (document.body.classList.contains("light-mode")) {
+                themeIcon.src = "https://files.catbox.moe/neaa87.png"; // Mode Gelap
+            } else {
+                themeIcon.src = "https://files.catbox.moe/neaa87.png"; // Mode Terang
+            }
+        }
+
+        function copyText(number) {
+            // Menyalin nomor ke clipboard
+            navigator.clipboard.writeText(number).then(function() {
+                // Menampilkan notifikasi setelah berhasil disalin
+                var notification = document.getElementById('notification');
+                notification.style.display = 'flex';
+                
+                // Menyembunyikan notifikasi setelah 3 detik
+                setTimeout(function() {
+                    notification.style.display = 'none';
+                }, 3000); // 3000 ms = 3 detik
+            }).catch(function(err) {
+                console.error('Gagal menyalin: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
