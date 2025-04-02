@@ -1,0 +1,186 @@
+/* Import font dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+/* Body */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins dengan style bold */
+    font-weight: bold;  /* Membuat font menjadi bold */
+    background-image: url('media/background-gelap.jpg');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+    height: 100vh;
+    background-position: center;
+}
+
+/* Mode Terang */
+.light-mode {
+    background-image: url('media/background-terang.jpg');
+    color: black;
+}
+
+/* Tombol Tema Gelap/Terang */
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.theme-toggle img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Halaman Sambutan */
+#sambutan-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.sambutan {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.sambutan img {
+    width: 120px;
+}
+
+.sambutan button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Profile */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.profile-frame {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-border {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+}
+
+/* Nama dan Deskripsi */
+h2, .description {
+    transition: color 0.3s;
+}
+
+.light-mode h2,
+.light-mode .description {
+    color: black;
+}
+
+/* Deskripsi */
+.description {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 80%;
+    color: white;
+}
+
+.light-mode .description {
+    background: rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+/* Tombol */
+.buttons button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 200px;
+    font-weight: bold; /* Menambahkan font-bold pada tombol */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Warna tombol pada Mode Gelap */
+.buttons button {
+    background-color: #333;
+    color: white;
+}
+
+.buttons button:hover {
+    background-color: #555;
+    color: white;
+}
+
+/* Mode Terang - Tombol */
+.light-mode .buttons button {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.light-mode .buttons button:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Notifikasi */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745; /* Warna hijau untuk sukses */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: none;
+    font-size: 12px; /* Ukuran font kecil */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+/* Ikon Lonceng di dalam notifikasi */
+.notification img {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px; /* Memberi jarak antara ikon dan teks */
+}
